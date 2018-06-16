@@ -32,15 +32,19 @@ func setupRest() *gin.Engine{
     taskRestRouter := r.Group("rest/task")
     {
         taskRestRouter.GET("/", func(c *gin.Context) {
-            c.String(http.StatusOK, "API For All List: rest/task/")
+            var allTaskData []ToDoTask
+            db.Find(&allTaskData)
+            
+            c.JSON(200,allTaskData)
+            
         })
         taskRestRouter.GET("/:id", func(c *gin.Context) {
             id := c.Param("id")
+            var retrieveData ToDoTask
+            db.First(&retrieveData, id)
             
-            c.JSON(200, gin.H{
-			"message": "Implementing",
-            })
-            c.String(http.StatusOK, "API For Single Todo: rest/task/"+id)
+            c.JSON(200,retrieveData)
+            
         })
         taskRestRouter.POST("/", func(c *gin.Context) {
             var jsonData ToDoTask
@@ -50,7 +54,7 @@ func setupRest() *gin.Engine{
                 db.Create(&jsonData)
                 
                 message := "Task Logged"
-                c.JSON(http.StatusOK, gin.H{"message": message, ""})
+                c.JSON(http.StatusCreated, gin.H{"message": message})
                 
             } else {
                 c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -58,17 +62,30 @@ func setupRest() *gin.Engine{
             
         })
         taskRestRouter.PUT("/:id", func(c *gin.Context) {
+            var jsonData ToDoTask
             id := c.Param("id")
-            c.String(http.StatusOK, "API For Update Single Todo: rest/task/"+id)
+            if err := c.ShouldBindJSON( &jsonData); err == nil {
+                var updateData ToDoTask
+                db.First(&updateData, id)
+                updateData.Task = jsonData.Task
+                updateData.Status =jsonData.Status
+                db.Save(&updateData)
+            }else{
+                c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+            }
+            c.String(http.StatusOK, "Updated Single Todo: rest/task/"+id)
         })
         taskRestRouter.DELETE("/:id", func(c *gin.Context) {
-            c.String(http.StatusOK, "API For DELETE Single Todo: rest/task/1")
+            db, _ := gorm.Open("mysql", "tracebackerror:12345@/todo?charset=utf8&parseTime=True&loc=Local")
+            id := c.Param("id")
+            var delData ToDoTask
+            db.First(&delData, id)
+            db.Delete(&delData)
+            
+            c.JSON(http.StatusOK, gin.H{"message": "Todo deleted id- "+id})
+            
         })
         
 	}
-    
-   
-    
-    
 	return r
 }
