@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
 type ToDoTask struct {
