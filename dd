@@ -1,0 +1,41 @@
+[33mcommit 6976ed1695bea55e62067eee56a8a5d0f20c70dd[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sun Jun 17 02:50:58 2018 +0530
+
+    HTTP VERB POST PUT Implemented
+
+[33mcommit 07390b080364e60f3a8c96b0948393a1d4618da2[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sun Jun 17 01:51:11 2018 +0530
+
+    POST Implemented
+
+[33mcommit e7f90de3497e93216228283265da83118c06e5bd[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sun Jun 17 00:41:56 2018 +0530
+
+    Refactored code for fixing Gin Undefined ShouldBindJson
+
+[33mcommit 83dc1ba62ca7242b879838b00d20b6aee8830df8[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sat Jun 16 23:05:34 2018 +0530
+
+    Separation Of Initialisation
+
+[33mcommit 9942f3bcffa9ed243376ecae73cb6aef70718e38[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sat Jun 16 23:04:52 2018 +0530
+
+    Scaff Folding Created For ToDo
+
+[33mcommit 2ad2fb1d00b3e188622d63d7cc81716d5312dcf7[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sat Jun 16 22:34:40 2018 +0530
+
+    Govendor integrated wth gin
+
+[33mcommit 804e612a3719fd348e9f2aa94212ddbe2dd0a28f[m
+Author: tracebackerror <shivam9172@gmail.com>
+Date:   Sat Jun 16 22:30:14 2018 +0530
+
+    Initialised Base Repo with res/ping api
