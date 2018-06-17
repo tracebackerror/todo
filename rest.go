@@ -90,7 +90,7 @@ func setupRest() *gin.Engine {
 				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 				return
 			}
-			//fmt.Println(string(jsonMData))
+			fmt.Println(string(jsonMData))
 			c.JSON(http.StatusOK, allTaskData)
 
 		})
