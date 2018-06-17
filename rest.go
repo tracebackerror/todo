@@ -11,7 +11,7 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	//_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
 type ToDoTask struct {
@@ -68,8 +68,8 @@ func setupRest() *gin.Engine {
 	*/
 
 	r := gin.Default()
-	//db, err := gorm.Open("mysql", "tracebackerror:12345@/todo?charset=utf8&parseTime=True&loc=Local")
-	db, err := gorm.Open("sqlite3", "todo.db")
+	db, err := gorm.Open("mysql", "tracebackerror:12345@/todo?charset=utf8&parseTime=True&loc=Local")
+	//db, err := gorm.Open("sqlite3", "todo.db")
 
 	if err != nil {
 		panic("failed to connect database")
