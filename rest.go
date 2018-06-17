@@ -90,7 +90,7 @@ func setupRest() *gin.Engine {
 				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 				return
 			}
-			fmt.Println(string(jsonMData))
+			//fmt.Println(string(jsonMData))
 			c.JSON(http.StatusOK, allTaskData)
 
 		})
@@ -135,7 +135,7 @@ func setupRest() *gin.Engine {
 			c.String(http.StatusOK, "Updated Single Todo: rest/task/"+id)
 		})
 		taskRestRouter.DELETE("/:id", func(c *gin.Context) {
-			db, _ := gorm.Open("mysql", "tracebackerror:12345@/todo?charset=utf8&parseTime=True&loc=Local")
+			//db, _ := gorm.Open("mysql", "tracebackerror:12345@/todo?charset=utf8&parseTime=True&loc=Local")
 			id := c.Param("id")
 			var delData ToDoTask
 			db.First(&delData, id)

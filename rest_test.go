@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+
 func TestPingRoute(t *testing.T) {
 	r := setupRest()
 	w := httptest.NewRecorder()
