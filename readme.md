@@ -18,7 +18,7 @@ help of certain examples (use readme file in GitHub repository for this).
 * Once connected Hit host/rest/ping -> Message from server will be received.
 
 ## Endpoints Implemented:
-GET:  Fetch the data from the below todo
+               GET:  Fetch the data from the below todo
 		   *    SUPPORTED PATH:
 		   **       /rest/task
 		   **       /rest/task/
